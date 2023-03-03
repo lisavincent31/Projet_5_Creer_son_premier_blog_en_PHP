@@ -54,7 +54,48 @@
         <!-- Image element - set the background image for the header in the line below-->
         <div class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/4ulffa6qoKA/1200x800')">
             <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
-            <div style="height: 20rem"></div>
+            <div class="text-white" style="height: 8rem">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 text-center">
+                            <h3 class="mb-5">Téléchargez mon CV</h3>
+                            <a class="text-white" href="assets/file/cv_lisavincent.pdf" download>
+                                <i class="bi bi-file-earmark-arrow-down"></i>
+                            </a>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <h3 class="mb-5">Mes réseaux</h3>
+                            <ul class="nav justify-content-evenly list-unstyled d-flex">
+                                <li class="ms-3">
+                                    <a class="text-white" href="#">
+                                        <i class="bi bi-github"></i>
+                                    </a>
+                                </li>
+                                <li class="ms-3">
+                                    <a class="text-white" href="#">
+                                        <i class="bi bi-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li class="ms-3">
+                                    <a class="text-white" href="#">
+                                        <i class="bi bi-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="ms-3">
+                                    <a class="text-white" href="#">
+                                        <i class="bi bi-facebook"></i>
+                                    </a>
+                                </li>
+                                <li class="ms-3">
+                                    <a class="text-white" href="#">
+                                        <i class="bi bi-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Content section-->
         <section class="py-5">
