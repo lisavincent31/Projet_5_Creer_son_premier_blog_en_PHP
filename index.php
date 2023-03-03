@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="description" content="blog, développeuse d'application web, développement web" />
+        <meta name="author" content="Lisa VINCENT" />
         <title>Lisa VINCENT : Mon premier blog en PHP</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -43,10 +43,10 @@
         <section class="py-5">
             <div class="container my-5">
                 <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <h2>Full Width Backgrounds</h2>
-                        <p class="lead">A single, lightweight helper class allows you to add engaging, full width background images to sections of your page.</p>
-                        <p class="mb-0">The universe is almost 14 billion years old, and, wow! Life had no problem starting here on Earth! I think it would be inexcusably egocentric of us to suggest that we're alone in the universe.</p>
+                    <div class="col-lg-6 text-center">
+                        <h2>Développeuse d'applications web</h2>
+                        <p class="lead">Envie d'un site web pour développer votre activité ?</p>
+                        <p class="mb-0">Remplissez le formulaire de contact ci-dessous, je vous répondrais dans les plus bref délais.</p>
                     </div>
                 </div>
             </div>
@@ -61,16 +61,29 @@
             <div class="container my-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <h2>Engaging Background Images</h2>
-                        <p class="lead">The background images used in this template are sourced from Unsplash and are open source and free to use.</p>
-                        <p class="mb-0">I can't tell you how many people say they were turned off from science because of a science teacher that completely sucked out all the inspiration and enthusiasm they had for the course.</p>
+                        <h3>Formulaire de contact</h3>
+                        <form action="" method="post">
+                            <div class="form-group form-floating mb-3">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Votre nom">
+                                <label for="name">Votre nom</label>
+                            </div>
+                            <div class="form-group form-floating mb-3">
+                                <input type="text" class="form-control" name="email" id="email" placeholder="Votre email">
+                                <label for="name">Votre email</label>
+                            </div>
+                            <div class="form-group form-floating mb-3">
+                                <textarea type="text" class="form-control" name="email" id="email" col="6" row="6" placeholder="Votre message"></textarea>
+                                <label for="name">Votre message</label>
+                            </div>
+                            <button type="submit" class="btn btn-primary float-end">Envoyer</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright © Your Website 2022</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright © Lisa VINCENT 2023</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -79,3 +92,4 @@
         <script src="assets/js/theme.js"></script>
     </body>
 </html>
+
