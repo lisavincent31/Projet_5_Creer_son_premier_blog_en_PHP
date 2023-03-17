@@ -14,31 +14,7 @@
         <link href="assets/css/theme.css" rel="stylesheet" />
     </head>
     <body>
-        <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">
-                    <img src="assets/img/favicon/favicon-32x32.png" alt="Logo">
-                    <span>Lisa VINCENT _ Blog</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="views/blog.php">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.php">Se connecter</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Header -->
-        <header class="py-5 bg-image-full" style="background-image: url('https://cdn.pixabay.com/photo/2016/11/19/22/53/apple-1841553_960_720.jpg'); background-repeat:no-repeat; background-position:center;background-size:cover;">
-            <div class="text-center my-5">
-                <img class="img-fluid rounded-circle mb-4" src="assets/img/profil.jpg" alt="...">
-                <h1 class="text-white fs-3 fw-bolder">Lisa VINCENT</h1>
-                <p class="text-white mb-0">Explorez le monde passionnant de la création d'applications web.</p>
-            </div>
-        </header>
+        
         <!-- Content section-->
         <section class="py-5">
             <div class="container my-5">
@@ -122,10 +98,7 @@
                 </div>
             </div>
         </section>
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright © Lisa VINCENT 2023</p></div>
-        </footer>
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -133,4 +106,3 @@
         <script src="assets/js/theme.js"></script>
     </body>
 </html>
-

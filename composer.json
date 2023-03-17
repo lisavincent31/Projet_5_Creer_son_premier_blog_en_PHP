@@ -1,0 +1,16 @@
+{
+    "name": "vince/projet_5_creer_son_premier_blog_en_php",
+    "autoload": {
+        "psr-4": {
+            "Router\\": "src/routes/",
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lisa VINCENT",
+            "email": "lisa.vincent31150@gmail.com"
+        }
+    ],
+    "require": {}
+}
