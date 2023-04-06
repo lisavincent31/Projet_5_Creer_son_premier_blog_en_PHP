@@ -4,9 +4,11 @@
         <div class="card mb-4">
             <div class="card-header">
                 <h2 class="card-title"><?= $post->title ?></h2>
-                <small><?= $post->created_at ?></small>
-                <p class="small"><?= $post->chapô ?></p>
-                <a href="/Projet_5_Creer_son_premier_blog_en_PHP/posts/<?= $post->id ?>" class="btn btn-primary float-end mt-2">Lire plus</a>
+                <p class="lead"><?= $post->chapô ?></p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="badge bg-info">Publié le : <?= $post->getCreatedAt() ?></small>
+                    <?= $post->getButton(); ?>
+                </div>
             </div>
         </div>
     <?php endforeach ?>
