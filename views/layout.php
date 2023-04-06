@@ -17,24 +17,24 @@
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="index.php">
-                    <img src="assets/img/favicon/favicon-32x32.png" alt="Logo">
+                <a class="navbar-brand" href="/Projet_5_Creer_son_premier_blog_en_PHP/">
+                    <img src="public/img/favicon/favicon-32x32.png" alt="Logo">
                     <span>Lisa VINCENT _ Blog</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="views/blog.php">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.php">Se connecter</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Projet_5_Creer_son_premier_blog_en_PHP/">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/Projet_5_Creer_son_premier_blog_en_PHP/posts/">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Se connecter</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Header -->
-        <header class="py-5 bg-image-full" style="background-image: url('https://cdn.pixabay.com/photo/2016/11/19/22/53/apple-1841553_960_720.jpg'); background-repeat:no-repeat; background-position:center;background-size:cover;">
+        <header class="py-5 bg-image-full">
             <div class="text-center my-5">
-                <img class="img-fluid rounded-circle mb-4" src="assets/img/profil.jpg" alt="...">
+                <img class="img-fluid rounded-circle mb-4" src="public/img/profil.jpg" alt="...">
                 <h1 class="text-white fs-3 fw-bolder">Lisa VINCENT</h1>
                 <p class="text-white mb-0">Explorez le monde passionnant de la création d'applications web.</p>
             </div>

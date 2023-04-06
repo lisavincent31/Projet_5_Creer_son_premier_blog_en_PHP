@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
@@ -7,14 +7,13 @@
         <meta name="author" content="Lisa VINCENT" />
         <title>Lisa VINCENT : Mon premier blog en PHP</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
-        <!-- Bootstrap icons-->
+        Bootstrap icons
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
+        Core theme CSS (includes Bootstrap)
         <link href="assets/css/styles.css" rel="stylesheet" />
         <link href="assets/css/theme.css" rel="stylesheet" />
     </head>
-    <body>
-        
+    <body>-->
         <!-- Content section-->
         <section class="py-5">
             <div class="container my-5">
@@ -28,14 +27,14 @@
             </div>
         </section>
         <!-- Image element - set the background image for the header in the line below-->
-        <div class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/4ulffa6qoKA/1200x800')">
+        <div class="py-5 bg-image-full">
             <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
-            <div class="text-white" style="height: 8rem">
+            <div class="text-white">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 text-center">
                             <h3 class="mb-5">Téléchargez mon CV</h3>
-                            <a class="text-white" href="assets/file/cv_lisavincent.pdf" download>
+                            <a class="text-white" href="/assets/file/cv_lisavincent.pdf" download>
                                 <i class="bi bi-file-earmark-arrow-down"></i>
                             </a>
                         </div>
@@ -99,10 +98,10 @@
             </div>
         </section>
         
-        <!-- Bootstrap core JS-->
+        <!-- Bootstrap core JS
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
+        Core theme JS
         <script src="assets/js/scripts.js"></script>
         <script src="assets/js/theme.js"></script>
     </body>
-</html>
+</html> -->

@@ -1,3 +1,21 @@
+.bg-image-full{
+  background-image: url('https://source.unsplash.com/4ulffa6qoKA/1200x800');
+  background-repeat:no-repeat; 
+  background-position:center;
+  background-size:cover;
+}
+
+.bg-image-full > div {
+  height: 8rem;
+}
+
+header .bg-image-full {
+  background-image: url('https://cdn.pixabay.com/photo/2016/11/19/22/53/apple-1841553_960_720.jpg');
+  background-repeat:no-repeat; 
+  background-position:center;
+  background-size:cover;
+}
+
 a .bi {
     font-size: 30px;
 }

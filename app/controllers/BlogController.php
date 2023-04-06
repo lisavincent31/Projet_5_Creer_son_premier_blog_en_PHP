@@ -6,18 +6,20 @@ class BlogController extends Controller {
 
     public function index()
     {
-        return $this->view('blog.index');
+        $statement = $this->db->getPDO()->query('SELECT * FROM posts ORDER BY created_at DESC');
+        $posts = $statement->fetchAll();
+        return $this->view('blog.index', compact('posts'));
     }
 
     public function show(int $id)
     {
-        $req = $this->db->getPDO()->query('SELECT * FROM posts');
+        $post_statement = $this->db->getPDO()->query('SELECT * FROM posts WHERE id = '.$id);
+        $post = $post_statement->fetch();
 
-        $posts = $req->fetchAll();
-        foreach($posts as $post) {
-            echo $post->title;
-        }
-        return $this->view('blog.show', compact('id'));
+        $author_statement = $this->db->getPDO()->query('SELECT * FROM users WHERE id ='.$post->author);
+        $author = $author_statement->fetch();
+
+        return $this->view('blog.show', compact('post', 'author'));
     }
 
 }
