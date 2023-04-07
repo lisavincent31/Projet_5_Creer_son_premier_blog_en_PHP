@@ -20,7 +20,7 @@ $router->get('/', 'App\Controllers\HomeController@home');
 // Routes for the BlogPage
 $router->get('/posts', 'App\Controllers\BlogController@index');
 $router->get('/posts/:id', 'App\Controllers\BlogController@show');
-
+$router->get('/tags/:id', 'App\Controllers\BlogController@tag');
 // // Routes for the Login and SignUp Page
 // $router->get('/login', 'App\Controllers\AuthController@login');
 // $router->get('/signup', 'App\Controllers\AuthController@signup');
