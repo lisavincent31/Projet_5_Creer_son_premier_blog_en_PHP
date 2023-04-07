@@ -1,6 +1,7 @@
 <?php 
 
 use Router\Router;
+use App\Exceptions\NotFoundException;
 
 require '../vendor/autoload.php';
 
@@ -31,4 +32,8 @@ $router->get('/tags/:id', 'App\Controllers\BlogController@tag');
 // $router->get('/admin/posts/:id/update', 'App\Controllers\AuthController@update');
 // $router->get('/admin/posts/:id/delete', 'App\Controllers\AuthController@delete');
 
-$router->run();
+try {
+    $router->run();
+} catch(NotFoundException $e) {
+    return $e->error404();
+}
