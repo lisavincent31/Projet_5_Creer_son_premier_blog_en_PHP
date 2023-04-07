@@ -4,9 +4,18 @@
         <div class="card mb-4">
             <div class="card-header">
                 <h2 class="card-title"><?= $post->title ?></h2>
+                <div class="d-flex">
+                    <?php foreach($post->getTags() as $tag) : ?>
+                        <span class="badge bg-<?= $tag->badge ?> m-1"><?= $tag->name ?></span>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="card-body">
                 <p class="lead"><?= $post->chapô ?></p>
+            </div>
+            <div class="card-footer">
                 <div class="d-flex justify-content-between align-items-center">
-                    <small class="badge bg-info">Publié le : <?= $post->getCreatedAt() ?></small>
+                    <small class="text-info">Publié le : <?= $post->getCreatedAt() ?></small>
                     <?= $post->getButton(); ?>
                 </div>
             </div>

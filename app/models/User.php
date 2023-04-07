@@ -8,7 +8,7 @@ class User extends Model {
 
     public function getFullName()
     {
-        
+        return $this->firstname.' '.$this->lastname;
     }
 }
 
