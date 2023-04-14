@@ -19,19 +19,24 @@ $router = new Router($_GET['url']);
 
 // Route for the HomePage
 $router->get('/', 'App\Controllers\HomeController@home');
+
 // Routes for the BlogPage
 $router->get('/posts', 'App\Controllers\BlogController@index');
 $router->get('/posts/:id', 'App\Controllers\BlogController@show');
 $router->get('/tags/:id', 'App\Controllers\BlogController@tag');
-// // Routes for the Login and SignUp Page
-// $router->get('/login', 'App\Controllers\AuthController@login');
-// $router->get('/signup', 'App\Controllers\AuthController@signup');
-// // Routes for the Backend AdminPage
-// $router->get('/admin', 'App\Controllers\AuthController@admin');
-// // Routes for manage the blog posts
-// $router->get('/admin/posts/create', 'App\Controllers\AuthController@create');
-// $router->get('/admin/posts/:id/update', 'App\Controllers\AuthController@update');
-// $router->get('/admin/posts/:id/delete', 'App\Controllers\AuthController@delete');
+
+// Routes for the Login and SignUp Page
+// $router->get('/login', 'App\Controllers\Admin\AuthController@login');
+// $router->get('/signup', 'App\Controllers\Admin\AuthController@signup');
+
+// Routes for the Backend AdminPage
+// $router->get('/admin/dashboard', 'App\Controllers\Admin\AuthController@dashboard');
+
+// Routes for manage the blog posts
+$router->get('/admin/posts/', 'App\Controllers\Admin\PostController@index');
+$router->get('/admin/posts/create', 'App\Controllers\Admin\PostController@create');
+// $router->get('/admin/posts/update/:id', 'App\Controllers\Admin\PostController@update');
+$router->post('/admin/posts/delete/:id', 'App\Controllers\Admin\PostController@delete');
 
 try {
     $router->run();

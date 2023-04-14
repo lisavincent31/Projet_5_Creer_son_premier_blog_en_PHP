@@ -21,6 +21,13 @@ class Router {
         return $route; // On retourne la route pour "enchaîner" les méthodes
     }
 
+    public function post(string $path, string $action)
+    {
+        $route = new Route($path, $action);
+        $this->routes['POST'][] = $route;
+        return $route; // On retourne la route pour "enchaîner" les méthodes
+    }
+
     public function run()
     {
         if(!isset($this->routes[$_SERVER['REQUEST_METHOD']])) {
