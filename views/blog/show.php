@@ -1,6 +1,6 @@
 <div class="container p-4">
     <h1><?= $params['post']->title ?></h1>
-    <small><?= $params['post']->chapô ?></small>
+    <small><?= $params['post']->chapo ?></small>
     <div class="d-flex mt-3">
         <?php foreach($params['post']->getTags() as $tag) : ?>
             <span class="badge bg-<?= $tag->badge ?> m-1"><?= $tag->name ?></span>

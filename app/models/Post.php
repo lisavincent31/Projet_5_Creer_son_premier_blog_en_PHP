@@ -13,6 +13,11 @@ class Post extends Model{
         return (new DateTime($this->created_at))->format('d/m/Y à H:i');
     }
 
+    public function getUpdatedAt(): string
+    {
+        return (new DateTime($this->updated_at))->format('d/m/Y à H:i');
+    }
+
     public function getButton(): string
     {
         return <<<HTML
@@ -26,7 +31,7 @@ HTML;
             SELECT t.* FROM tags t
             INNER JOIN post_tag pt ON pt.tag_id = t.id
             WHERE pt.post_id = ?
-        ", $this->id);
+        ", [$this->id]);
     }
 }
 

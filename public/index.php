@@ -35,8 +35,9 @@ $router->get('/tags/:id', 'App\Controllers\BlogController@tag');
 // Routes for manage the blog posts
 $router->get('/admin/posts/', 'App\Controllers\Admin\PostController@index');
 $router->get('/admin/posts/create', 'App\Controllers\Admin\PostController@create');
-// $router->get('/admin/posts/update/:id', 'App\Controllers\Admin\PostController@update');
 $router->post('/admin/posts/delete/:id', 'App\Controllers\Admin\PostController@delete');
+$router->get('/admin/posts/edit/:id', 'App\Controllers\Admin\PostController@edit');
+$router->post('/admin/posts/edit/:id', 'App\Controllers\Admin\PostController@update');
 
 try {
     $router->run();

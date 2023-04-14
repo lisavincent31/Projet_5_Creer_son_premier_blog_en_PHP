@@ -26,7 +26,7 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="<?= URL.'/' ?>">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= URL.'/posts/' ?>">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= URL.'/login' ?>">Se connecter</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= URL.'/admin/posts' ?>">Tableau de bord</a></li>
                     </ul>
                 </div>
             </div>

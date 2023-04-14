@@ -13,11 +13,11 @@
                 </div>
             </div>
             <div class="card-body">
-                <p class="lead"><?= $post->chapô ?></p>
+                <p class="lead"><?= $post->chapo ?></p>
             </div>
             <div class="card-footer">
                 <div class="d-flex justify-content-between align-items-center">
-                    <small class="text-info">Publié le : <?= $post->getCreatedAt() ?></small>
+                    <small class="text-info">Dernière modification le : <?= $post->getUpdatedAt() ?></small>
                     <?= $post->getButton(); ?>
                 </div>
             </div>
