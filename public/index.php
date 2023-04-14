@@ -7,6 +7,7 @@ require '../vendor/autoload.php';
 
 define('VIEWS', dirname(__DIR__) . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR);
 define('SCRIPTS', dirname($_SERVER['SCRIPT_NAME']) . DIRECTORY_SEPARATOR);
+define('URL', '/Projet_5_Creer_son_premier_blog_en_PHP');
 
 // constantes for the connection
 define('DB_NAME', 'myblog');

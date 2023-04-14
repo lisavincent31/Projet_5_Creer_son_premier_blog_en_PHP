@@ -4,7 +4,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <h2 class="card-title"><?= $post->title ?></h2>
-                <a href="/Projet_5_Creer_son_premier_blog_en_PHP/posts/<?= $post->id ?>" class="btn btn-primary float-end">Lire l'article</a>
+                <a href="<?= URL .'/posts/'. $post->id ?>" class="btn btn-primary float-end">Lire l'article</a>
             </div>
         </div>
     <?php endforeach ?>

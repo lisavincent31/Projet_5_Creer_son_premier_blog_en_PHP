@@ -28,7 +28,7 @@
 
                             <p>la page que vous recherchez n'est pas disponible !</p>
 
-                            <a href="/Projet_5_Creer_son_premier_blog_en_PHP/" class="link_404 text-decoration-none">Go to Home</a>
+                            <a href="<?= URL ?>/" class="link_404 text-decoration-none">Go to Home</a>
                         </div>
                     </div>
                 </div>

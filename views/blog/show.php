@@ -12,5 +12,5 @@
         <small class="badge text-info">Publié le : <?= $params['post']->getCreatedAt() ?></small>
     </div>
 
-    <a href="/Projet_5_Creer_son_premier_blog_en_PHP/posts/" class="btn btn-secondary float-end mt-5">Revenir en arrière</a>
+    <a href="<?= URL ?>/posts/" class="btn btn-secondary float-end mt-5">Revenir en arrière</a>
 </div>

@@ -7,7 +7,7 @@
                 <div class="d-flex">
                     <?php foreach($post->getTags() as $tag) : ?>
                         <span class="badge bg-<?= $tag->badge ?> m-1">
-                            <a href="/Projet_5_Creer_son_premier_blog_en_PHP/tags/<?= $tag->id ?>"class="text-white text-decoration-none"><?= $tag->name ?></a>
+                            <a href="<?= URL . '/tags/' . $tag->id ?>"class="text-white text-decoration-none"><?= $tag->name ?></a>
                         </span>
                     <?php endforeach ?>
                 </div>
