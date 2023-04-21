@@ -8,7 +8,14 @@ class User extends Model {
 
     public function getByEmail(string $email): User
     {
-        return $this->query("SELECT * FROM {$this->table} WHERE email = ?", [$email], true);
+        $user = $this->query("SELECT * FROM {$this->table} WHERE email = ?", [$email], true);
+        if($user) {
+            return $user;
+        }else{
+            $_SESSION['errors']['user'] = ['Email inconnu, veuillez créer un compte.'];
+            header('Location: ' .URL.'/login');
+            exit;
+        }
     }
 
     public function getFullName()
