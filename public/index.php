@@ -26,8 +26,10 @@ $router->get('/posts/:id', 'App\Controllers\BlogController@show');
 $router->get('/tags/:id', 'App\Controllers\BlogController@tag');
 
 // Routes for the Login and SignUp Page
-// $router->get('/login', 'App\Controllers\Admin\AuthController@login');
-// $router->get('/signup', 'App\Controllers\Admin\AuthController@signup');
+$router->get('/login', 'App\Controllers\UserController@login');
+$router->post('/login', 'App\Controllers\UserController@loginPost');
+$router->get('/logout', 'App\Controllers\UserController@logout');
+$router->get('/signup', 'App\Controllers\Admin\AuthController@signup');
 
 // Routes for the Backend AdminPage
 // $router->get('/admin/dashboard', 'App\Controllers\Admin\AuthController@dashboard');

@@ -6,7 +6,7 @@
         <meta name="description" content="blog, développeuse d'application web, développement web" />
         <meta name="author" content="Lisa VINCENT" />
         <title>Lisa VINCENT : Mon premier blog en PHP</title>
-        <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -26,7 +26,10 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link" href="<?= URL.'/' ?>">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link" href="<?= URL.'/posts/' ?>">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= URL.'/admin/posts' ?>">Tableau de bord</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= URL.'/login/' ?>">Se connecter</a></li>
+                        <?php if(isset($_SESSION['auth'])) : ?>
+                            <li class="nav-item"><a class="nav-link" href="<?= URL.'/logout/' ?>">Se déconnecter</a></li>
+                        <?php endif ?>
                     </ul>
                 </div>
             </div>
