@@ -25,7 +25,7 @@ abstract class Model {
         return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
     }
 
-    public function update(int $id, array $data): bool
+    public function update(int $id, array $data, ?array $relations = null)
     {
         $data['author'] = 1;
         $data['updated_at'] = date('Y-m-d H:i:s');
@@ -52,7 +52,7 @@ abstract class Model {
     {
         $method = is_null($param) ? 'query' : 'prepare';
 
-        if(strpos($sql, 'DELETE') === 0 || strpos($sql, 'UPDATE') === 0 || strpos($sql, 'CREATE') === 0) {
+        if(strpos($sql, 'DELETE') === 0 || strpos($sql, 'UPDATE') === 0 || strpos($sql, 'INSERT') === 0) {
 
             $statement = $this->db->getPDO()->$method($sql);
             $statement->setFetchMode(PDO::FETCH_CLASS, get_class($this), [$this->db]);
