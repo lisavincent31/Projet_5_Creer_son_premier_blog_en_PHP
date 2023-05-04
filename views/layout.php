@@ -18,17 +18,45 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="<?= URL.'/' ?>">
-                    <img src="public/img/favicon/favicon-32x32.png" alt="Logo">
+                    <img src="../public/img/favicon/favicon-32x32.png" alt="Logo">
                     <span>Lisa VINCENT _ Blog</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="<?= URL.'/' ?>">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= URL.'/posts/' ?>">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?= URL.'/login/' ?>">Se connecter</a></li>
+                        <?php if(!isset($_SESSION['auth']) || isset($_SESSION['auth']) && $_SESSION['auth'] == 0) : ?>
+                            <li class="nav-item"><a class="nav-link" href="<?= URL.'/' ?>">Accueil</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?= URL.'/posts/' ?>">Blog</a></li>
+                        <?php endif ?>
+                        <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] == 1) : ?>
+                            <li class="nav-item"><a class="nav-link" href="<?= URL.'/admin/users' ?>">Utilisateurs</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?= URL.'/admin/posts' ?>">Articles</a></li>
+                        <?php endif ?>
+                        <!-- L'utilisateur n'est pas connecté -->
+                        <?php if(!isset($_SESSION['auth'])) : ?>
+                            <li class="nav-item"><a class="nav-link" href="<?= URL.'/login/' ?>">Se connecter</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?= URL.'/signup/' ?>">S'inscrire</a></li>
+                        <?php endif ?>
+                        <!-- L'utilisateur est connecté -->
                         <?php if(isset($_SESSION['auth'])) : ?>
-                            <li class="nav-item"><a class="nav-link" href="<?= URL.'/logout/' ?>">Se déconnecter</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Menu
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end">
+                                <!-- Il est Admin -->
+                                <?php if($_SESSION['auth'] == 1) : ?>
+                                    <li><a class="dropdown-item" href="<?= URL.'/admin/dashboard' ?>">Tableau de bord</a></li>
+                                    <li><a class="dropdown-item" href="<?= URL.'/posts/' ?>">Mon Blog</a></li>
+                                <?php endif ?>
+                                <!-- Il n'est pas Admin -->
+                                <?php if($_SESSION['auth'] == 0) : ?>
+                                    <li><a class="dropdown-item" href="<?= URL.'/dashboard' ?>">Tableau de bord</a></li>
+                                <?php endif ?>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="<?= URL.'/logout/' ?>">Se déconnecter</a></li>
+                            </ul>
+                        </li>
                         <?php endif ?>
                     </ul>
                 </div>
@@ -36,13 +64,15 @@
         </nav>
         
         <!-- Page Content -->
-        <div class="container-fluid">
+        <div class="flex-shrink-0">
             <?= $content ?>
         </div>
 
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright © Lisa VINCENT 2023</p></div>
+        <footer class="footer mt-auto py-5 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white">Copyright © Lisa VINCENT 2023</p>
+            </div>
         </footer>
 
         <!-- Script Bootstrap -->

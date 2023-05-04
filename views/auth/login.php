@@ -1,5 +1,4 @@
 <?php if(isset($_SESSION['errors'])) : ?>
-
     <?php foreach($_SESSION['errors'] as $errorsArray) : ?>
         <?php foreach($errorsArray as $error) : ?>
             <div class="alert alert-danger">
@@ -7,21 +6,31 @@
             </div>
         <?php endforeach ?>
     <?php endforeach ?>
-
 <?php endif ?>
 <?php session_destroy() ?>
-<h1>Se connecter</h1>
+<div class="container vh-50">
+    <h1 class="text-center mt-4">Se connecter</h1>
 
-<form action="<?= URL.'/login' ?>" method="post" class="m-4">
+    <div class="row">
+        <form action="<?= URL.'/login' ?>" method="post" class="col-6 m-auto mt-4">
 
-    <div class="form-group">
-        <label for="email">Email :</label>
-        <input type="email" class="form-control m-2" name="email" id="email" value="">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                <label for="email">Email :</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Mot de passe">
+                <label for="password">Mot de passe :</label>
+            </div>
+            <button type="submit" class="btn btn-primary float-end mb-4 mt-4">Se connecter</button>
+        </form>
     </div>
-
-    <div class="form-group">
-        <label for="password">Mot de passe :</label>
-        <input type="password" class="form-control m-2" name="password" id="password" value="">
+    <div class="row mt-4">
+        <div class="col-6 m-auto">
+            <div class="d-flex flex-column justify-content-center">
+                <p>Vous n'avez pas encore de compte ? Cliquez <a href="<?= URL.'/signup/' ?>">ici</a> pour vous inscrire.</p>
+            </div>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary mt-4">Se connecter</button>
-</form>
+</div>

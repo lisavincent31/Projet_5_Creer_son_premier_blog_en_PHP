@@ -29,10 +29,11 @@ $router->get('/tags/:id', 'App\Controllers\BlogController@tag');
 $router->get('/login', 'App\Controllers\UserController@login');
 $router->post('/login', 'App\Controllers\UserController@loginPost');
 $router->get('/logout', 'App\Controllers\UserController@logout');
-$router->get('/signup', 'App\Controllers\Admin\AuthController@signup');
+$router->get('/signup', 'App\Controllers\UserController@signup');
+$router->post('/signup', 'App\Controllers\UserController@signupPost');
 
 // Routes for the Backend AdminPage
-// $router->get('/admin/dashboard', 'App\Controllers\Admin\AuthController@dashboard');
+$router->get('/admin/dashboard/', 'App\Controllers\Admin\AuthController@admin');
 
 // Routes for manage the blog posts
 $router->get('/admin/posts/', 'App\Controllers\Admin\PostController@index');

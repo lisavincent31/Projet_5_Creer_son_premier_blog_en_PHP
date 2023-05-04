@@ -15,13 +15,13 @@ class Post extends Model{
 
     public function getUpdatedAt(): string
     {
-        return (new DateTime($this->updated_at))->format('d/m/Y à H:i');
+        return (new DateTime($this->updated_at))->format('d F');
     }
 
     public function getButton(): string
     {
         return <<<HTML
-        <a href="/Projet_5_Creer_son_premier_blog_en_PHP/posts/$this->id" class="btn btn-primary float-end mt-2">Lire l'article</a>
+        <a href="/Projet_5_Creer_son_premier_blog_en_PHP/posts/$this->id" class="mt-2 position-relative bottom-0">Lire l'article</a>
 HTML;
     }
 
@@ -36,6 +36,8 @@ HTML;
 
     public function create(array $data, ?array $relations = null)
     {
+        $data['author'] = 1;
+        
         parent::create($data);
 
         $id = $this->db->getPDO()->lastInsertId();

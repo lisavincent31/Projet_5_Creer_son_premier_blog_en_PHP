@@ -27,7 +27,6 @@ abstract class Model {
 
     public function create(array $data, ?array $relations = null)
     {
-        $data['author'] = 1;
         $data['created_at'] = date('Y-m-d H:i:s');
         $data['updated_at'] = date('Y-m-d H:i:s');
 

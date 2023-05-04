@@ -1,36 +1,35 @@
-<?php if(isset($_GET['success'])) : ?>
-    <div class="alert alert-success mt-3">Vous êtes connecté.</div>
-<?php endif ?>
-<h1>Administration des articles</h1>
+<div class="container">
+    <h1 class="text-center mt-4">Gestion des articles</h1>
 
-<a href="<?= URL.'/admin/posts/create' ?>" class="btn btn-success my-3">Ajouter un article</a>
+    <a href="<?= URL.'/admin/posts/create' ?>" class="btn btn-success my-3">Ajouter un article</a>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Titre</th>
-            <th scope="col">Edité le</th>
-            <th scope="col">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach($params['posts'] as $post): ?>
+    <table class="table">
+        <thead>
             <tr>
-                <th scope="row"><?= $post->id ?></th>
-                <td><?= $post->title ?></td>
-                <td><?= $post->getUpdatedAt() ?></td>
-                <td class="d-flex">
-                    <a href="<?= URL.'/admin/posts/edit/'.$post->id ?>" class="btn btn-warning btn-action m-2">
-                        <i class="bi bi-pencil-square"></i>
-                    </a>
-                    <form action="<?= URL.'/admin/posts/delete/'.$post->id ?>" method="POST" class="d-inline">
-                        <button type="submit" class="btn btn-danger btn-action m-2">
-                            <i class="bi bi-trash-fill"></i>
-                        </button>
-                    </form>
-                </td>
+                <th scope="col">#</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Edité le</th>
+                <th scope="col">Actions</th>
             </tr>
-        <?php endforeach ?>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <?php foreach($params['posts'] as $post): ?>
+                <tr>
+                    <th scope="row"><?= $post->id ?></th>
+                    <td><?= $post->title ?></td>
+                    <td><?= $post->getUpdatedAt() ?></td>
+                    <td class="d-flex">
+                        <a href="<?= URL.'/admin/posts/edit/'.$post->id ?>" class="btn btn-warning btn-action m-2">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <form action="<?= URL.'/admin/posts/delete/'.$post->id ?>" method="POST" class="d-inline">
+                            <button type="submit" class="btn btn-danger btn-action m-2">
+                                <i class="bi bi-trash-fill"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach ?>
+        </tbody>
+    </table>
+</div>
