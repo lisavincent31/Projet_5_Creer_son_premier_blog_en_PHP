@@ -15,7 +15,7 @@ class Post extends Model{
 
     public function getUpdatedAt(): string
     {
-        return (new DateTime($this->updated_at))->format('d F');
+        return (new DateTime($this->updated_at))->format('d F Y');
     }
 
     public function getButton(): string
@@ -32,6 +32,36 @@ HTML;
             INNER JOIN post_tag pt ON pt.tag_id = t.id
             WHERE pt.post_id = ?
         ", [$this->id]);
+    }
+
+    public function getComments()
+    {
+        return $this->query("
+        SELECT c.* FROM comments c
+        INNER JOIN comment_post cp ON cp.comment_id = c.id
+        WHERE cp.post_id = ?
+        ", [$this->id]);
+    }
+
+    public function getCommentAuthor(int $id)
+    {
+        $author = $this->query("
+        SELECT firstname FROM users
+        INNER JOIN comments on comments.author = users.id
+        WHERE comments.id = ?
+        ", [$id]);
+
+        return $author[0]->firstname;
+    }
+    public function getCommentUpdate(int $id)
+    {
+        $update = $this->query("
+        SELECT updated_at FROM comments
+        WHERE comments.id = ?
+        ", [$id]);
+
+        $date = (new DateTime($update[0]->updated_at))->format('d M Y');
+        return $date;
     }
 
     public function create(array $data, ?array $relations = null)

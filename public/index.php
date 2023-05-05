@@ -35,6 +35,9 @@ $router->post('/signup', 'App\Controllers\UserController@signupPost');
 // Routes for the Backend AdminPage
 $router->get('/admin/dashboard/', 'App\Controllers\Admin\AuthController@admin');
 
+// Routes for the Backend AdminPage
+$router->get('/user/dashboard/', 'App\Controllers\Admin\AuthController@user');
+
 // Routes for manage the blog posts
 $router->get('/admin/posts/', 'App\Controllers\Admin\PostController@index');
 $router->get('/admin/posts/create', 'App\Controllers\Admin\PostController@create');

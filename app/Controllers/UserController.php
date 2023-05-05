@@ -30,10 +30,13 @@ class UserController extends Controller {
 
         if(password_verify($_POST['password'], $user->password)) {
             $_SESSION['auth'] = (int) $user->isAdmin;
+            $_SESSION['user']['id'] = $user->id;
+            $_SESSION['user']['firstname'] = $user->firstname;
+
             if($_SESSION['auth'] == 1) {
                 return header('Location: ' .URL.'/admin/dashboard?success=true');
             }else{
-                return header('Location: ' .URL.'/?success=true');
+                return header('Location: ' .URL."/user/dashboard?success=true");
             }
 
         }else{

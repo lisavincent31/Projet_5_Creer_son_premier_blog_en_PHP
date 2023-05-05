@@ -40,4 +40,13 @@ abstract class Controller {
             header('Location: ' .URL.'/login');
         }
     }
+
+    protected function isUser()
+    {
+        if(isset($_SESSION['auth']) && $_SESSION['auth'] == 0) {
+            return true;
+        }else{
+            header('Location: ' .URL.'/login');
+        }
+    }
 }

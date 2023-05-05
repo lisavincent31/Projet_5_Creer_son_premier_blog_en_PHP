@@ -29,8 +29,9 @@
                             <li class="nav-item"><a class="nav-link" href="<?= URL.'/posts/' ?>">Blog</a></li>
                         <?php endif ?>
                         <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] == 1) : ?>
-                            <li class="nav-item"><a class="nav-link" href="<?= URL.'/admin/users' ?>">Utilisateurs</a></li>
                             <li class="nav-item"><a class="nav-link" href="<?= URL.'/admin/posts' ?>">Articles</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?= URL.'/admin/comments' ?>">Commentaires</a></li>
+                            <li class="nav-item"><a class="nav-link" href="<?= URL.'/admin/users' ?>">Utilisateurs</a></li>
                         <?php endif ?>
                         <!-- L'utilisateur n'est pas connecté -->
                         <?php if(!isset($_SESSION['auth'])) : ?>
@@ -41,7 +42,7 @@
                         <?php if(isset($_SESSION['auth'])) : ?>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Menu
+                                Bienvenu <?= $_SESSION['user']['firstname'] ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-lg-end">
                                 <!-- Il est Admin -->
@@ -51,7 +52,7 @@
                                 <?php endif ?>
                                 <!-- Il n'est pas Admin -->
                                 <?php if($_SESSION['auth'] == 0) : ?>
-                                    <li><a class="dropdown-item" href="<?= URL.'/dashboard' ?>">Tableau de bord</a></li>
+                                    <li><a class="dropdown-item" href="<?= URL.'/user/dashboard' ?>">Tableau de bord</a></li>
                                 <?php endif ?>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?= URL.'/logout/' ?>">Se déconnecter</a></li>
@@ -62,11 +63,11 @@
                 </div>
             </div>
         </nav>
-        
+
         <!-- Page Content -->
-        <div class="flex-shrink-0">
+        <main class="flex-shrink-0 bg-light py-3">
             <?= $content ?>
-        </div>
+        </main>
 
         <!-- Footer-->
         <footer class="footer mt-auto py-5 bg-dark">

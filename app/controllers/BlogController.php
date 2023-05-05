@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Tag;
+use App\Models\Comment;
 
 class BlogController extends Controller {
 
@@ -23,6 +24,7 @@ class BlogController extends Controller {
 
         return $this->view('blog.show', compact('post', 'author'));
     }
+
     public function tag(int $id)
     {
         $tag = (new Tag($this->getDB()))->findById($id);

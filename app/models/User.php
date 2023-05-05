@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use DateTime;
+
 class User extends Model {
 
     protected $table = 'users';
@@ -35,9 +37,19 @@ class User extends Model {
         }
     }
 
-    public function getFullName()
+    public function getFullName(): string
     {
         return $this->firstname.' '.$this->lastname;
+    }
+
+    public function getFirstname(): string
+    {
+        return $this->firstname;
+    }
+
+    public function getCreatedAt(): string 
+    {
+        return (new DateTime($this->created_at))->format('d F Y');
     }
 }
 

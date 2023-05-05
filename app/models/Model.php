@@ -17,12 +17,17 @@ abstract class Model {
 
     public function all(): array
     {
-        return $this->query("SELECT * FROM {$this->table} ORDER BY created_at DESC");
+        return $this->query("SELECT * FROM {$this->table} ORDER BY updated_at DESC");
     }
 
     public function findById(int $id): Model
     {
         return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
+    }
+
+    public function getByUser(int $id)
+    {
+        return $this->query("SELECT * FROM {$this->table} WHERE author = ?", [$id]);
     }
 
     public function create(array $data, ?array $relations = null)
