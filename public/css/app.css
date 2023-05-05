@@ -84,7 +84,7 @@ li:hover{
 /*======================
     Admin Posts page
 =======================*/
-a.btn-action {
+.btn-action {
   width: 25px;
   height: 25px;
   display: inline-flex;

@@ -8,7 +8,7 @@
         </div>
     <?php endif ?>
     <div class="m-3 p-4">
-        <h1 class="text-center">Bienvenu <?= $_SESSION['user']['firstname'] ?></h1>
+        <h1 class="text-center">Bienvenue <?= $_SESSION['user']['firstname'] ?></h1>
         <h2 class="text-center">sur votre tableau de bord</h2>
     </div>
     <div class="accordion" id="accordionExample">
@@ -42,8 +42,8 @@
                                     </td>
                                     <td><?= $post->getUpdatedAt() ?></td>
                                     <td>
-                                        <a href="<?= URL."/posts/{$post->id}" ?>" class="btn btn-primary btn-action m-2">
-                                            <i class="bi bi-eye"></i>
+                                        <a href="<?= URL."/posts/{$post->id}" ?>" class="bg-primary btn-action m-2">
+                                            <i class="bi bi-eye text-white"></i>
                                         </a>
                                     </td>
                                 </tr>
@@ -76,7 +76,7 @@
                             <?php foreach($params['comments'] as $comment) : ?>
                                 <tr>
                                     <th scope="row"><?= $comment->id ?></th>
-                                    <td><?= $comment->getPost() ?></td>
+                                    <td><?= $comment->getPost()->title ?></td>
                                     <td><?= $comment->content ?></td>
                                     <td><?= $comment->getAuthor(); ?></td>
                                     <?php switch($comment->status) {
@@ -94,7 +94,7 @@
                                             break;
                                     } ?>
                                     <td>
-                                        <a href="" class="bg-primary btn-action">
+                                        <a href="<?= URL."/posts/{$comment->getPost()->id}" ?>" class="bg-primary btn-action">
                                             <i class="bi bi-eye text-white"></i>
                                         </a>
                                         <a href="" class="bg-warning btn-action">
@@ -142,8 +142,8 @@
                                             break;
                                     } ?>
                                     <td>
-                                        <a href="" class="btn btn-warning btn-action m-2">
-                                            <i class="bi bi-pencil-square"></i>
+                                        <a href="" class="bg-warning btn-action m-2">
+                                            <i class="bi bi-pencil text-white"></i>
                                         </a>
                                     </td>
                                 </tr>

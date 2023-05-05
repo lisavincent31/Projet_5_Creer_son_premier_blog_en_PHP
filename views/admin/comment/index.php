@@ -1,37 +1,24 @@
 <div class="container">
-    <?php if(isset($_GET['success'])) : ?>
-        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
-            <div class="d-flex align-items-center">
-                <p>Vous êtes connecté.</p>
-            </div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif ?>
-    <div class="m-3 p-4">
-        <h1 class="text-center">Bienvenue <?= $_SESSION['user']['firstname'] ?></h1>
-        <h2 class="text-center">sur votre tableau de bord</h2>
-    </div>
+    <h1 class="text-center my-4">Gestion des commentaires</h1>
+
     <div class="row">
-        <div class="col-10 m-auto bg-white p-3 border rounded">
-            <h2 class="mb-4">Liste de vos commentaires</h2>
+        <div class="col-10 m-auto bg-white p-2 border">
             <table class="table">
                 <thead>
-                    <tr>
-                        <th scope="col-1">#</th>
-                        <th scope="col-1">Post</th>
-                        <th scope="col-3">Commentaire</th>
-                        <th scope="col-2">Auteur</th>
-                        <th scope="col-2">Status</th>
-                        <th scope="col-4">Actions</th>
-                    </tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Commentaire</th>
+                    <th scope="col">Auteur</th>
+                    <th scope="col">Edité le</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Actions</th>
                 </thead>
                 <tbody>
                     <?php foreach($params['comments'] as $comment) : ?>
                         <tr>
                             <th scope="row"><?= $comment->id ?></th>
-                            <td><?= $comment->getPost()->title ?></td>
                             <td><?= $comment->content ?></td>
-                            <td><?= $comment->getAuthor(); ?></td>
+                            <td><?= $comment->getAuthor() ?></td>
+                            <td><?= $comment->getCreatedAt() ?></td>
                             <?php switch($comment->status) {
                                 case 'accepted':
                                     echo "<td class='text-success'>Accepté</td>";
@@ -47,11 +34,14 @@
                                     break;
                             } ?>
                             <td>
-                                <a href="<?= URL."/posts/{$comment->getPost()->id}" ?>" class="bg-primary btn-action">
+                                <a href="" class="bg-primary btn-action">
                                     <i class="bi bi-eye text-white"></i>
                                 </a>
                                 <a href="" class="bg-warning btn-action">
                                     <i class="bi bi-pencil text-white"></i>
+                                </a>
+                                <a href="" class="bg-danger btn-action">
+                                    <i class="bi bi-trash text-white"></i>
                                 </a>
                             </td>
                         </tr>

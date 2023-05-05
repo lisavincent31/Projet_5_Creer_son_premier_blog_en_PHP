@@ -46,6 +46,21 @@ $router->post('/admin/posts/delete/:id', 'App\Controllers\Admin\PostController@d
 $router->get('/admin/posts/edit/:id', 'App\Controllers\Admin\PostController@edit');
 $router->post('/admin/posts/edit/:id', 'App\Controllers\Admin\PostController@update');
 
+// Routes for manage the blog comments
+$router->get('/admin/comments/', 'App\Controllers\Admin\CommentController@index');
+$router->get('/admin/comments/:id', 'App\Controllers\Admin\CommentController@show');
+$router->post('/admin/comments/delete/:id', 'App\Controllers\Admin\CommentController@delete');
+
+// Routes for manage the blog users
+$router->get('/admin/users/', 'App\Controllers\Admin\UserController@index');
+$router->get('/user/:id', 'App\Controllers\Admin\UserController@account');
+$router->get('/admin/users/create', 'App\Controllers\Admin\UserController@create');
+$router->post('/admin/users/create', 'App\Controllers\Admin\UserController@createUser');
+$router->get('/admin/users/:id', 'App\Controllers\Admin\UserController@show');
+$router->post('/admin/users/delete/:id', 'App\Controllers\Admin\UserController@delete');
+$router->get('/admin/users/edit/:id', 'App\Controllers\Admin\UserController@edit');
+$router->post('/admin/users/edit/:id', 'App\Controllers\Admin\UserController@update');
+
 try {
     $router->run();
 } catch(NotFoundException $e) {

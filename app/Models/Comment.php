@@ -12,12 +12,12 @@ class Comment extends Model {
     public function getPost()
     {
         $post = $this->query("
-        SELECT p.title FROM posts p
+        SELECT p.id, p.title FROM posts p
         INNER JOIN comment_post cp ON cp.post_id = p.id 
         WHERE cp.comment_id = ?
         ", [$this->id]);
 
-        return $post[0]->title;
+        return $post[0];
     }
 
     public function getAuthor()
@@ -29,6 +29,11 @@ class Comment extends Model {
         ", [$this->id]);
 
         return $author[0]->firstname." ".$author[0]->lastname;
+    }
+
+    public function getCreatedAt()
+    {
+        return (new DateTime($this->created_at))->format('d/m/Y à H:i');
     }
 }
 

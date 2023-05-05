@@ -20,6 +20,11 @@ abstract class Model {
         return $this->query("SELECT * FROM {$this->table} ORDER BY updated_at DESC");
     }
 
+    public function allByStatus(): array
+    {
+        return $this->query("SELECT * FROM {$this->table} ORDER BY CASE WHEN status = 'pending' THEN 'accepted' ELSE 'deleted' END, status");
+    }
+
     public function findById(int $id): Model
     {
         return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);

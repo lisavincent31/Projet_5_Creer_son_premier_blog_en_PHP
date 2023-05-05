@@ -1,8 +1,10 @@
 <div class="container p-4">
-    <h1 class="text-center"><?= $params['post']->title ?></h1>
-    <div class="row">
+    <div class="col-10 m-auto m-2 p-3 text-center">
+        <h1><?= $params['post']->title ?></h1>
+        <small><?= $params['post']->chapo ?></small>
+    </div>
+    <div class="row bg-white border p-2">
         <div class="col-10 m-auto">
-            <small><?= $params['post']->chapo ?></small>
             <div class="d-flex mt-3">
                 <?php foreach($params['post']->getTags() as $tag) : ?>
                     <span class="badge bg-<?= $tag->badge ?> m-1"><?= $tag->name ?></span>
@@ -40,14 +42,17 @@
             </div>
             
             <?php if(isset($_SESSION['auth'])) : ?>
-                <form action="<?= URL.'/posts/'.$params['post']->id.'comments/create/' ?>" method="POST">
-                    <div class="form-group">
+                <form action="<?= URL.'/posts/'.$params['post']->id.'comments/create/' ?>" class="d-flex justify-content-between" method="POST">
+                    <div class="form-floating col-10">
+                        <input type="text" name="comment" class="form-control" placeholder="Laisser un commentaire">
                         <label for="comment">Laissez un commentaire</label>
-                        <input type="text" name="comment" class="form-control">
                     </div>
+                    <button type="submit" class="btn btn-primary btn-small">Valider</button>
                 </form>
             <?php endif ?>
-            <a href="<?= URL ?>/posts/" class="btn btn-secondary float-end mt-5 col-3">Revenir en arrière</a>
         </div>
+    </div>
+    <div class="row">
+        <a href="<?= URL ?>/posts/" class="btn btn-secondary float-end my-3 col-3 float-end">Revenir au blog</a>
     </div>
 </div>
