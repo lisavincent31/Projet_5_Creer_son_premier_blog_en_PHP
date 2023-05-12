@@ -20,6 +20,7 @@ class Connection {
         $this->password = $password;
     }
 
+    // function to connect the database
     public function getPDO(): PDO
     {
         return $this->pdo ?? $this->pdo = new PDO("mysql:dbname={$this->dbname};host={$this->host}", $this->username, $this->password, 

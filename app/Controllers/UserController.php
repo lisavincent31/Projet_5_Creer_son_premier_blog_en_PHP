@@ -7,11 +7,13 @@ use App\Validation\Validator;
 
 class UserController extends Controller {
 
+    // return the view of the login form
     public function login()
     {
         return $this->view('auth.login');
     }
 
+    // function to post the login form
     public function loginPost()
     {
         $validator = new Validator($_POST);
@@ -45,12 +47,14 @@ class UserController extends Controller {
             exit;
         }
     }
-    
+
+    // return the view of the signup form
     public function signup() 
     {
         return $this->view('auth.signup');
     }
 
+    // function to post the signup form
     public function signupPost() 
     {
         $validator = new Validator($_POST);
@@ -76,6 +80,7 @@ class UserController extends Controller {
         }
     }
 
+    // function to logout a user and return to the homepage
     public function logout() 
     {
         session_destroy();

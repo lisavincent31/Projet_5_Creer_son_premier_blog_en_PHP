@@ -9,6 +9,7 @@ use App\Models\Comment;
 
 class AuthController extends Controller 
 {
+    // Return the dashboard admin view with all posts, comments and users
     public function admin() 
     {
         $this->isAdmin();
@@ -19,6 +20,7 @@ class AuthController extends Controller
         return $this->view('admin.dashboard', compact('posts', 'comments', 'users'));
     }
 
+    // return the dashboard user view with all comments write by him
     public function user() 
     {
         $this->isUser();

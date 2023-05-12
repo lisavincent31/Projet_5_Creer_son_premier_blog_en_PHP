@@ -12,6 +12,7 @@ class NotFoundException extends Exception
         parent::__construct($message, $code, $previous);
     }
 
+    // function to return the 404 not found page if the url is incorrect
     public function error404() 
     {
         http_response_code(404);

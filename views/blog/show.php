@@ -1,4 +1,12 @@
 <div class="container p-4">
+    <?php if(isset($_SESSION['success'])) : ?>
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            <div class="d-flex align-items-center">
+                <p><?= $_SESSION['success'] ?></p>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif ?>
     <div class="col-10 m-auto m-2 p-3 text-center">
         <h1><?= $params['post']->title ?></h1>
         <small><?= $params['post']->chapo ?></small>
@@ -42,10 +50,10 @@
             </div>
             
             <?php if(isset($_SESSION['auth'])) : ?>
-                <form action="<?= URL.'/posts/'.$params['post']->id.'comments/create/' ?>" class="d-flex justify-content-between" method="POST">
+                <form action="<?= URL.'/posts/'.$params['post']->id.'/comment/create/' ?>" class="d-flex justify-content-between" method="POST">
                     <div class="form-floating col-10">
-                        <input type="text" name="comment" class="form-control" placeholder="Laisser un commentaire">
-                        <label for="comment">Laissez un commentaire</label>
+                        <input type="text" name="content" class="form-control" placeholder="Laisser un commentaire">
+                        <label for="comment">Laissez un commentaire :</label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-small">Valider</button>
                 </form>

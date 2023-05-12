@@ -32,6 +32,9 @@ $router->get('/logout', 'App\Controllers\UserController@logout');
 $router->get('/signup', 'App\Controllers\UserController@signup');
 $router->post('/signup', 'App\Controllers\UserController@signupPost');
 
+// Route for create a comment for a specific post
+$router->post('/posts/:id/comment/create', 'App\Controllers\Admin\CommentController@commentPost');
+
 // Routes for the Backend AdminPage
 $router->get('/admin/dashboard/', 'App\Controllers\Admin\AuthController@admin');
 
@@ -46,10 +49,11 @@ $router->post('/admin/posts/delete/:id', 'App\Controllers\Admin\PostController@d
 $router->get('/admin/posts/edit/:id', 'App\Controllers\Admin\PostController@edit');
 $router->post('/admin/posts/edit/:id', 'App\Controllers\Admin\PostController@update');
 
+
 // Routes for manage the blog comments
 $router->get('/admin/comments/', 'App\Controllers\Admin\CommentController@index');
-$router->get('/admin/comments/:id', 'App\Controllers\Admin\CommentController@show');
-$router->post('/admin/comments/delete/:id', 'App\Controllers\Admin\CommentController@delete');
+$router->get('/admin/comments/:id', 'App\Controllers\Admin\CommentController@accept');
+$router->get('/admin/comments/delete/:id', 'App\Controllers\Admin\CommentController@delete');
 
 // Routes for manage the blog users
 $router->get('/admin/users/', 'App\Controllers\Admin\UserController@index');

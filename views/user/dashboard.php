@@ -47,12 +47,11 @@
                                     break;
                             } ?>
                             <td>
-                                <a href="<?= URL."/posts/{$comment->getPost()->id}" ?>" class="bg-primary btn-action">
-                                    <i class="bi bi-eye text-white"></i>
-                                </a>
-                                <a href="" class="bg-warning btn-action">
-                                    <i class="bi bi-pencil text-white"></i>
-                                </a>
+                                <?php if($comment->status == 'accepted') : ?>
+                                    <a href="<?= URL."/posts/{$comment->getPost()->id}" ?>" class="bg-primary btn-action">
+                                        <i class="bi bi-eye text-white"></i>
+                                    </a>
+                                <?php endif ?>
                             </td>
                         </tr>
                     <?php endforeach ?>

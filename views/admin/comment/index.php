@@ -1,4 +1,12 @@
 <div class="container">
+    <?php if(isset($_SESSION['success'])) : ?>
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            <div class="d-flex align-items-center">
+                <p><?= $_SESSION['success'] ?></p>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif ?>
     <h1 class="text-center my-4">Gestion des commentaires</h1>
 
     <div class="row">
@@ -34,15 +42,14 @@
                                     break;
                             } ?>
                             <td>
-                                <a href="" class="bg-primary btn-action">
-                                    <i class="bi bi-eye text-white"></i>
-                                </a>
-                                <a href="" class="bg-warning btn-action">
-                                    <i class="bi bi-pencil text-white"></i>
-                                </a>
-                                <a href="" class="bg-danger btn-action">
-                                    <i class="bi bi-trash text-white"></i>
-                                </a>
+                                <div class="d-flex">
+                                    <a href="<?= URL.'/admin/comments/'.$comment->id ?>" class="bg-success btn-action">
+                                        <i class="bi bi-check text-white"></i>
+                                    </a>
+                                    <a href="<?= URL.'/admin/comments/delete/'.$comment->id ?>" class="bg-danger btn-action">
+                                        <i class="bi bi-trash text-white"></i>
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach ?>

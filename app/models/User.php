@@ -8,6 +8,7 @@ class User extends Model {
 
     protected $table = 'users';
 
+    // create a user
     public function create(array $data, ?array $relations = null)
     {
         $data['isAdmin'] = 0;
@@ -25,6 +26,7 @@ class User extends Model {
         }
     }
 
+    // get a specific user by its email
     public function getByEmail(string $email): User
     {
         $user = $this->query("SELECT * FROM {$this->table} WHERE email = ?", [$email], true);
@@ -37,16 +39,19 @@ class User extends Model {
         }
     }
 
+    // get the fullname of a user
     public function getFullName(): string
     {
         return $this->firstname.' '.$this->lastname;
     }
 
+    // get the firstname of a user
     public function getFirstname(): string
     {
         return $this->firstname;
     }
 
+    // get the creation date of a user
     public function getCreatedAt(): string 
     {
         return (new DateTime($this->created_at))->format('d F Y');

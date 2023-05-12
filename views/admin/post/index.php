@@ -1,6 +1,14 @@
 <div class="container">
+    <?php if(isset($_SESSION['success'])) : ?>
+        <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+            <div class="d-flex align-items-center">
+                <p><?= $_SESSION['success'] ?></p>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif ?>
+    
     <h1 class="text-center my-4">Gestion des articles</h1>
-
     <div class="row">
         <div class="col-10 m-auto">
             <a href="<?= URL.'/admin/posts/create' ?>" class="btn btn-success my-3">Ajouter un article</a>

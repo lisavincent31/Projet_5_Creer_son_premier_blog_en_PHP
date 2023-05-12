@@ -94,15 +94,18 @@
                                             break;
                                     } ?>
                                     <td>
-                                        <a href="<?= URL."/posts/{$comment->getPost()->id}" ?>" class="bg-primary btn-action">
-                                            <i class="bi bi-eye text-white"></i>
-                                        </a>
-                                        <a href="" class="bg-warning btn-action">
-                                            <i class="bi bi-pencil text-white"></i>
-                                        </a>
-                                        <a href="" class="bg-danger btn-action">
-                                            <i class="bi bi-trash text-white"></i>
-                                        </a>
+                                        
+                                        <div class="d-flex">
+                                            <a href="<?= URL."/posts/{$comment->getPost()->id}" ?>" class="bg-primary btn-action">
+                                                <i class="bi bi-eye text-white"></i>
+                                            </a>
+                                            <a href="<?= URL.'/admin/comments/'.$comment->id ?>" class="bg-success btn-action">
+                                                <i class="bi bi-check text-white"></i>
+                                            </a>
+                                            <a href="<?= URL.'/admin/comments/delete/'.$comment->id ?>" class="bg-danger btn-action">
+                                                <i class="bi bi-trash text-white"></i>
+                                            </a>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach ?>

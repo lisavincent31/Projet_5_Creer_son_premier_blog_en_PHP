@@ -11,6 +11,7 @@ class Validator {
         $this->data = $data;
     }
 
+    // specific function to validate a form field
     public function validate(array $rules): ?array
     {
         foreach($rules as $name => $rulesArray) {
@@ -32,6 +33,7 @@ class Validator {
         return $this->getErrors();
     }
 
+    // this field is absolutly required
     private function required(string $name, string $value)
     {
         $value = trim($value);
@@ -42,6 +44,7 @@ class Validator {
 
     }
 
+    // this field have a minimum caracters
     private function min(string $name, string $value, string $rule) {
         preg_match_all('/(\d+)/', $rule, $matches);
         $limit = (int) $matches[0][0];
@@ -52,6 +55,7 @@ class Validator {
 
     }
 
+    // this function return all the errors
     private function getErrors(): ?array
     {
         return $this->errors;

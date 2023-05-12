@@ -15,26 +15,31 @@ abstract class Model {
         $this->db = $db;
     }
 
+    // get all the entries from a table order by the column updated_at
     public function all(): array
     {
         return $this->query("SELECT * FROM {$this->table} ORDER BY updated_at DESC");
     }
 
+    // get all the entries from a table order by their status
     public function allByStatus(): array
     {
         return $this->query("SELECT * FROM {$this->table} ORDER BY CASE WHEN status = 'pending' THEN 'accepted' ELSE 'deleted' END, status");
     }
 
+    // find with an id a specific entry in a table
     public function findById(int $id): Model
     {
         return $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
     }
 
+    // find with an user a specific entry in a table
     public function getByUser(int $id)
     {
         return $this->query("SELECT * FROM {$this->table} WHERE author = ?", [$id]);
     }
 
+    // create a new entry in the database
     public function create(array $data, ?array $relations = null)
     {
         $data['created_at'] = date('Y-m-d H:i:s');
@@ -56,6 +61,7 @@ abstract class Model {
         return $this->query("INSERT INTO {$this->table} ($firstParenthesis) VALUES ($secondParenthesis)", $data);
     }
 
+    // update a specific entry in the database
     public function update(int $id, array $data, ?array $relations = null)
     {
         $data['author'] = 1;
@@ -74,11 +80,13 @@ abstract class Model {
         return $this->query("UPDATE {$this->table} SET {$sql_request_part} WHERE id = :id", $data);
     }
 
+    // destroy a specific entry in the database
     public function destroy(int $id): bool
     {
         return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id]);
     }
 
+    // general function to create the sql queries
     public function query(string $sql, array $param = null, bool $single = null)
     {
         $method = is_null($param) ? 'query' : 'prepare';

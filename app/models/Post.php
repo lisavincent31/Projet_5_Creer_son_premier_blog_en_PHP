@@ -8,16 +8,19 @@ class Post extends Model{
 
     protected $table = 'posts';
 
+    // get the creation date for a post
     public function getCreatedAt(): string
     {
         return (new DateTime($this->created_at))->format('d/m/Y à H:i');
     }
 
+    // get the updated date for a post
     public function getUpdatedAt(): string
     {
         return (new DateTime($this->updated_at))->format('d F Y');
     }
 
+    // create a specific button to return a post with his id
     public function getButton(): string
     {
         return <<<HTML
@@ -25,6 +28,7 @@ class Post extends Model{
 HTML;
     }
 
+    // get all the tags links to a post
     public function getTags() 
     {
         return $this->query("
@@ -34,6 +38,7 @@ HTML;
         ", [$this->id]);
     }
 
+    // get all the comments links to a post
     public function getComments()
     {
         return $this->query("
@@ -43,6 +48,7 @@ HTML;
         ", [$this->id]);
     }
 
+    // get the author of a comment
     public function getCommentAuthor(int $id)
     {
         $author = $this->query("
@@ -53,6 +59,8 @@ HTML;
 
         return $author[0]->firstname;
     }
+
+    // get the updated date of a comment
     public function getCommentUpdate(int $id)
     {
         $update = $this->query("
@@ -64,6 +72,7 @@ HTML;
         return $date;
     }
 
+    // create a new post with the relation tag
     public function create(array $data, ?array $relations = null)
     {
         $data['author'] = 1;
@@ -80,6 +89,7 @@ HTML;
         return true;
     }
 
+    // edit a post
     public function update(int $id, array $data, ?array $relations = null)
     {
         parent::update($id, $data);

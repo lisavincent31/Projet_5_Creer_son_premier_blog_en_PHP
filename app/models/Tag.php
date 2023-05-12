@@ -6,6 +6,7 @@ class Tag extends Model{
 
     protected $table = 'tags';
 
+    // get all posts links to a tag
     public function getPosts()
     {
         return $this->query("

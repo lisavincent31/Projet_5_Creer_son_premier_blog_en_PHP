@@ -9,6 +9,7 @@ use App\Models\Comment;
 
 class BlogController extends Controller {
 
+    // return the view of all posts in the website
     public function index()
     {
         $post = new Post($this->getDB());
@@ -17,6 +18,7 @@ class BlogController extends Controller {
         return $this->view('blog.index', compact('posts'));
     }
 
+    // return the view for one post 
     public function show(int $id)
     {
         $post = (new Post($this->getDB()))->findById($id);
@@ -25,6 +27,7 @@ class BlogController extends Controller {
         return $this->view('blog.show', compact('post', 'author'));
     }
 
+    // return all posts that have this tag
     public function tag(int $id)
     {
         $tag = (new Tag($this->getDB()))->findById($id);
