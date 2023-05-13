@@ -52,7 +52,6 @@
                                 <?php endif ?>
                                 <!-- Il n'est pas Admin -->
                                 <?php if($_SESSION['auth'] == 0) : ?>
-                                    <li><a class="dropdown-item" href="<?= URL."/user/{$_SESSION['user']['id']}" ?>">Mon compte</a></li>
                                     <li><a class="dropdown-item" href="<?= URL.'/user/dashboard' ?>">Tableau de bord</a></li>
                                 <?php endif ?>
                                 <li><hr class="dropdown-divider"></li>
